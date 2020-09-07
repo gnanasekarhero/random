@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 import matplotlib.pyplot as plt
 from autofeat import FeatureSelector, AutoFeatRegressor
 from sklearn.pipeline import make_pipeline
@@ -54,5 +55,5 @@ def main():
         
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
