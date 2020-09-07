@@ -16,26 +16,26 @@ def main():
         np.random.seed(55)
         print("### AutoFeat with %i feateng_steps" % steps)
         afreg = AutoFeatRegressor(verbose=1, feateng_steps=steps)
-        df = afreg.fit_transform(data, target)
-        r2 = afreg.score(data, target)
+        df = afreg.fit_transform(data)
+        r2 = afreg.score(data)
         print("## Final R^2: %.4f" % r2)
         plt.figure()
-        plt.scatter(afreg.predict(data), target, s=2);
+        plt.scatter(afreg.predict(data),s=2);
         plt.title("%i FE steps (R^2: %.4f; %i new features)" % (steps, r2, len(afreg.new_feat_cols_)))
     afreg = AutoFeatRegressor(verbose=1, feateng_steps=3)
     # train on noisy data
-    df = afreg.fit_transform(data, target_noisy)
+    df = afreg.fit_transform(data)
     # test on real targets
-    print("Final R^2: %.4f" % afreg.score(df, target))
+    print("Final R^2: %.4f" % afreg.score(df))
     plt.figure()
     plt.scatter(afreg.predict(df), target, s=2);
     afreg = AutoFeatRegressor(verbose=1, feateng_steps=3)
     # train on noisy data
-    df = afreg.fit_transform(data, target_very_noisy)
+    df = afreg.fit_transform(data)
     # test on real targets
-    print("Final R^2: %.4f" % afreg.score(df, target))
+    print("Final R^2: %.4f" % afreg.score(df))
     plt.figure()
-    plt.scatter(afreg.predict(df), target, s=2);
+    plt.scatter(afreg.predict(df));
 
     if pipe:
         pickle.dump(pipe,open('model.pkl','wb')) # store the artifact in docker container
