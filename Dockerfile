@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD . /app
 
-RUN pip install autofeat
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 ENTRYPOINT ["python"]
 
