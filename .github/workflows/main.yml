@@ -9,8 +9,8 @@ jobs:
       uses: Haimantika/random@master
       with:
         myInput: "[5.1,3.5,1.4,0.2]"
-    - name: Upload model.pkl 
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: ~/new/**/*
+        path: my_files.tar  
