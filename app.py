@@ -67,7 +67,7 @@ def test_autofeat(dataset, feateng_steps=2):
     print("Acc. on test data:", accuracy_score(y_test, gsmodel.predict(X_test_tr)))
 
     if pipe:
-        pickle.dump(pipe,open('~/new/**/*','wb')) # store the artifact in docker container
+        pickle.dump(pipe,open('my_files.tar','wb')) # store the artifact in docker container
 
         if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
             inputs = ast.literal_eval(os.environ["INPUT_MYINPUT"])
