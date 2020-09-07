@@ -1,0 +1,17 @@
+name: "Automated ML models using autofeat package"
+description: "Get your model ready using this action"
+author: "Haimantika Mitra"
+inputs:
+  myInput:
+    description: "Provide the data for classification"
+    required: true
+    default: "zeroinputs"
+outputs:
+  myOutput:
+    description: "Output from the action"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: 'box'
+  color: 'blue'
