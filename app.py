@@ -8,9 +8,9 @@ import pickle
 def main():
     # Get the dataset from the users GitHub repository
     dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
-    data = pd.read_csv(dataset_path)
+    dataset = pd.read_csv(dataset_path)
     print()
-    print(data.describe())
+    print(dataset.describe())
 
 def test_model(dataset, model, param_grid):
     # load data
