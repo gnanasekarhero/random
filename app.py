@@ -21,7 +21,7 @@ import pickle
     test_autofeat(dataset)
 '''
 
-def load_classification_dataset(dataset):
+def load_classification_dataset(dataset_path):
     dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
     dataset = pd.read_csv(dataset_path)
     print()
