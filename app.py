@@ -11,6 +11,7 @@ def main():
     dataset = pd.read_csv(dataset_path)
     print()
     print(dataset.describe())
+    test_autofeat(datset)
 
 def test_model(dataset, model, param_grid):
     # load data
