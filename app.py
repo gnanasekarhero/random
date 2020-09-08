@@ -90,7 +90,7 @@ def test_autofeat(dataset, feateng_steps=2):
     gsmodel = make_pipeline(column_trans,SVR())
     gsmodel.fit(X_train,y_train) #training the model
     print("\nModel Training Finished")
-    accuracy = pipe.score(X_test,y_test)
+    accuracy = gsmodel.score(X_test,y_test)
     print("\nAccuracy of the Model: "+str(accuracy*100))
 
     if gsmodel:
