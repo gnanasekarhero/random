@@ -94,7 +94,7 @@ def test_autofeat(dataset, feateng_steps=2):
     print("\nAccuracy of the Model: "+str(accuracy*100))
 
     if gsmodel:
-        pickle.dump(gsmodel,open('model.pkl','wb')) # store the artifact in docker container
+        pickle.dump(gsmodel,open('model.pkl','ws')) # store the artifact in docker container
 
         if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
             inputs = ast.literal_eval(os.environ["INPUT_MYINPUT"])
