@@ -67,12 +67,12 @@ def test_autofeat(dataset, feateng_steps=2):
     print("Acc. on test data:", accuracy_score(y_test, gsmodel.predict(X_test_tr)))
 
     if gsmodel:
-        pickle.dump(pipe,open('model.pkl','wb')) # store the artifact in docker container
+        pickle.dump(gsmodel,open('model.pkl','wb')) # store the artifact in docker container
 
         if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
             inputs = ast.literal_eval(os.environ["INPUT_MYINPUT"])
             print("\nThe Predicted Ouput is :")
-            output = pipe.predict([inputs])
+            output = gsmodel.predict([inputs])
             print(output)
         else:
             output = ["None"]
