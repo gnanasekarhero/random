@@ -88,6 +88,12 @@ def test_autofeat(dataset, feateng_steps=2):
     print("R^2 on training data:", r2_score(y_train, gsmodel.predict(X_train_tr)))
     print("R^2 on test data:", r2_score(y_test, gsmodel.predict(X_test_tr)))
 
+    gsmodel = make_pipeline(column_trans,SVR())
+    gsmodel.fit(X_train,y_train) #training the model
+    print("\nModel Training Finished")
+    accuracy = pipe.score(X_test,y_test)
+    print("\nAccuracy of the Model: "+str(accuracy*100))
+
     if gsmodel:
         pickle.dump(gsmodel,open('model.pkl','wb')) # store the artifact in docker container
 
