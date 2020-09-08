@@ -14,4 +14,3 @@ jobs:
       with:
         name: my-artifact
         path: model.pkl
-      
