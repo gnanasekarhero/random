@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifie
+from sklearn.ensemble import RandomForestClassifier
 from autofeat import FeatureSelector, AutoFeatRegressor
 from sklearn.pipeline import make_pipeline
 import pickle
