@@ -4,7 +4,7 @@ import warnings
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-#from sklearn.datasets import datasets
+from sklearn.datasets import dataset_path
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
@@ -23,7 +23,7 @@ def main():
     print(dataset.describe())
     test_autofeat(dataset)
     '''
-def load_regression_dataset(datasetpath="https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"):
+def load_regression_dataset(dataset_path="https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"):
     dataset = pd.read_csv(dataset_path)
     print()
     print(dataset.describe())
