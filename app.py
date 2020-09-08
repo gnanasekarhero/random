@@ -12,14 +12,13 @@ from autofeat import FeatureSelector, AutoFeatRegressor
 from sklearn.pipeline import make_pipeline
 import pickle
 
-'''def main():
+def main():
     # Get the dataset from the users GitHub repository
     dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
     dataset = pd.read_csv(dataset_path)
     print()
     print(dataset.describe())
     test_autofeat(dataset)
-'''
 
 def load_classification_dataset(dataset_path):
     dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
@@ -101,6 +100,6 @@ def test_autofeat(dataset, feateng_steps=2):
         
 
 
-'''if __name__ == "__main__":
+if __name__ == "__main__":
     main()
-'''
+
