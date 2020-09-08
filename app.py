@@ -11,11 +11,7 @@ def main():
     dataset = pd.read_csv(dataset_path)
     print()
     print(dataset.describe())
-<<<<<<< HEAD
-    test_autofeat(datset)
-=======
     test_autofeat(dataset)
->>>>>>> 861e3bf610c5c0b416793c25fe37c69fc2dc8ce2
 
     def test_model(dataset, model, param_grid):
         # load data
