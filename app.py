@@ -1,8 +1,18 @@
+import os
+import sys
+import warnings
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import os
-import matplotlib.pyplot as plt
-from autofeat import FeatureSelector, AutoFeatRegressor
+from sklearn.datasets import load_iris, load_wine, load_breast_cancer
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+
+from autofeat import AutoFeatClassifier
 from sklearn.pipeline import make_pipeline
 import pickle
 def main():
@@ -78,14 +88,14 @@ def test_autofeat(dataset, feateng_steps=2):
     if gsmodel:
         pickle.dump(gsmodel,open('model.pkl','wb')) # store the artifact in docker container
 
-        if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
-            inputs = ast.literal_eval(os.environ["INPUT_MYINPUT"])
-            print("\nThe Predicted Ouput is :")
-            output = gsmodel.predict([inputs])
-            print(output)
-        else:
-            output = ["None"]
-            print("\nUser didn't provided inputs to predict")
+    if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
+        inputs = ast.literal_eval(os.environ["INPUT_MYINPUT"])
+        print("\nThe Predicted Ouput is :")
+        output = gsmodel.predict([inputs])
+        print(output)
+    else:
+        output = ["None"]
+        print("\nUser didn't provided inputs to predict")
         
         print("\n=======================Action Completed========================")
         print(f"::set-output name=myOutput::{output[0]}")
