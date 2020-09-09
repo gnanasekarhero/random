@@ -25,11 +25,11 @@ def main():
     test_autofeat(dataset)
 def load_classification_dataset(dataset):
     #dataset = pd.read_csv(dataset_path)
-    X = dataset.iloc[:,:-1].to_numpy()
-    y = dataset.iloc[:,-1].to_numpy()
-    column_trans = make_column_transformer((OneHotEncoder(),[-1]),remainder='passthrough')
+    X = dataset.iloc[:,:-1]
+    y = dataset.iloc[:,-1]
+    #column_trans = make_column_transformer((OneHotEncoder(),[-1]),remainder='passthrough')
             #test_autofeat(dataset)
-    return np.array(X, dtype=float), np.array(y, dtype=float), units
+    return (X,y)
 def test_model(dataset, model, param_grid):
     # load data
     X, y, _ = load_classification_dataset(dataset)
