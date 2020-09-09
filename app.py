@@ -14,14 +14,16 @@ from autofeat import AutoFeatRegressor
 from sklearn.pipeline import make_pipeline
 import pickle
 
+'''
 dataset_path="https://raw.githubusercontent.com/"+ os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
 dataset = pd.read_csv(dataset_path)
+'''
 
 def main():
     # Get the dataset from the users GitHub repository
-    #dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
-    #dataset = pd.read_csv(dataset_path)
-    #print()
+    dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
+    dataset = pd.read_csv(dataset_path)
+    print()
     print(dataset.describe())
     test_model(dataset, model, param_grid)
     test_autofeat(dataset)
