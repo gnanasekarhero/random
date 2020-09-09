@@ -23,6 +23,7 @@ def main():
     dataset = pd.read_csv(dataset_path)
     print()
     print(dataset.describe())
+    test_model(dataset, model, param_grid)
     test_autofeat(dataset)
 
 def load_regression_dataset(dataset_path):
