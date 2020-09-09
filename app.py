@@ -24,6 +24,7 @@ def main():
     #test_model(dataset, model, param_grid)
     test_autofeat(dataset)
 def load_classification_dataset(dataset):
+    units={}
     #dataset = pd.read_csv(dataset_path)
     X = dataset.iloc[:,:-1]
     y = dataset.iloc[:,-1]
