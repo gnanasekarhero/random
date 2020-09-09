@@ -13,7 +13,10 @@ from sklearn.ensemble import RandomForestRegressor
 from autofeat import AutoFeatRegressor
 from sklearn.pipeline import make_pipeline
 import pickle
-'''
+
+dataset_path="https://raw.githubusercontent.com/"+ os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
+dataset = pd.read_csv(dataset_path)
+
 def main():
     # Get the dataset from the users GitHub repository
     dataset_path = "https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
@@ -21,9 +24,6 @@ def main():
     print()
     print(dataset.describe())
     test_autofeat(dataset)
-    '''
-dataset_path="https://raw.githubusercontent.com/"+ os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
-dataset = pd.read_csv(dataset_path)
 
 def load_regression_dataset(dataset_path):
     dataset = pd.read_csv(dataset_path)
@@ -33,7 +33,7 @@ def load_regression_dataset(dataset_path):
     print(dataset.describe())
         #test_autofeat(dataset)
     return np.array(X, dtype=float), np.array(y, dtype=float), units
-    def test_model(dataset, model, param_grid):
+def test_model(dataset, model, param_grid):
         # load data
         X, y, _ = load_regression_dataset(dataset)
         # split in training and test parts
@@ -52,7 +52,7 @@ def load_regression_dataset(dataset_path):
         print("R^2 on training data:", r2_score(y_train, gsmodel.predict(X_train)))
         print("R^2 on test data:", r2_score(y_test, gsmodel.predict(X_test)))
         return gsmodel.best_estimator_
-    def test_autofeat(dataset, feateng_steps=2):
+ def test_autofeat(dataset, feateng_steps=2):
         # load data
         X, y, units = load_regression_dataset(dataset)
         # split in training and test parts
@@ -99,7 +99,7 @@ def load_regression_dataset(dataset_path):
         accuracy = gsmodel.score(X_test,y_test)
         print("\nAccuracy of the Model: "+str(accuracy*100))
 
-        if gsmodel:
+if gsmodel:
             pickle.dump(gsmodel,open('model.pkl','wb')) # store the artifact in docker container
 
             if not os.environ["INPUT_MYINPUT"] == 'zeroinputs':
@@ -117,6 +117,6 @@ def load_regression_dataset(dataset_path):
             
 
 
-if __name__ == "_load_regression_dataset_":
-    load_regression_dataset()
+if __name__ == "_main_":
+    main()
 
