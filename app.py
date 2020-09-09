@@ -23,15 +23,14 @@ def main():
     print(dataset.describe())
     #test_model(dataset, model, param_grid)
     test_autofeat(dataset)
-def load_regression_dataset(dataset_path):
-    dataset = pd.read_csv(dataset_path)
-    X = df.iloc[:, 4:12].to_numpy()
-    y = df.iloc[:, 12].to_numpy()
+def load_regression_dataset(dataset):
+    #dataset = pd.read_csv(dataset_path)
+    X = dataset.iloc[:, 4:12].to_numpy()
+    y = dataset.iloc[:, 12].to_numpy()
     print()
     print(dataset.describe())
             #test_autofeat(dataset)
     return np.array(X, dtype=float), np.array(y, dtype=float), units
-'''
 def test_model(dataset, model, param_grid):
     # load data
     X, y, _ = load_classification_dataset(dataset)
@@ -50,8 +49,7 @@ def test_model(dataset, model, param_grid):
     print("best score:", gsmodel.best_score_)
     print("Acc. on training data:", accuracy_score(y_train, gsmodel.predict(X_train)))
     print("Acc. on test data:", accuracy_score(y_test, gsmodel.predict(X_test)))
-    return gsmodel.best_estimator_
-    '''
+    return gsmodel.best_estimator_   
 def test_autofeat(dataset, feateng_steps=2):
     # load data
     X, y, units = load_classification_dataset(dataset)
