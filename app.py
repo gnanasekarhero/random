@@ -22,11 +22,17 @@ def main():
     print(dataset.describe())
     test_autofeat(dataset)
     '''
-def load_regression_dataset(dataset_path="https://raw.githubusercontent.com/" + os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"):
+dataset_path="https://raw.githubusercontent.com/"+ os.environ["GITHUB_REPOSITORY"] +"/master/dataset.csv"
+dataset = pd.read_csv(dataset_path)
+
+def load_regression_dataset(dataset_path):
     dataset = pd.read_csv(dataset_path)
-    print()
-    print(dataset.describe())
-    test_autofeat(dataset)
+        X = df.iloc[:, 4:12].to_numpy()
+        y = df.iloc[:, 12].to_numpy()
+        print()
+        print(dataset.describe())
+        #test_autofeat(dataset)
+        return np.array(X, dtype=float), np.array(y, dtype=float), units
     def test_model(dataset, model, param_grid):
         # load data
         X, y, _ = load_regression_dataset(dataset)
