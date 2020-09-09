@@ -26,9 +26,9 @@ def main():
 def load_classification_dataset(dataset):
     #dataset = pd.read_csv(dataset_path)
     X = dataset.iloc[:,-1].to_numpy()
-    y = dataset.iloc["y"].to_numpy()
+    y = dataset.iloc[:,-1].to_numpy()
             #test_autofeat(dataset)
-    return np.array(X, dtype=float), np.array(y, dtype=float), units
+    return np.array(X, dtype=float), np.array(y, dtype=str), units
 def test_model(dataset, model, param_grid):
     # load data
     X, y, _ = load_classification_dataset(dataset)
