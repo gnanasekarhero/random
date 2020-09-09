@@ -23,12 +23,10 @@ def main():
     print(dataset.describe())
     #test_model(dataset, model, param_grid)
     test_autofeat(dataset)
-def load_regression_dataset(dataset):
+def load_classification_dataset(dataset):
     #dataset = pd.read_csv(dataset_path)
     X = dataset.iloc[:, 4:12].to_numpy()
     y = dataset.iloc[:, 12].to_numpy()
-    print()
-    print(dataset.describe())
             #test_autofeat(dataset)
     return np.array(X, dtype=float), np.array(y, dtype=float), units
 def test_model(dataset, model, param_grid):
