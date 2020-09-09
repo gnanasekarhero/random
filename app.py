@@ -52,7 +52,7 @@ def test_model(dataset, model, param_grid):
         print("R^2 on training data:", r2_score(y_train, gsmodel.predict(X_train)))
         print("R^2 on test data:", r2_score(y_test, gsmodel.predict(X_test)))
         return gsmodel.best_estimator_
- def test_autofeat(dataset, feateng_steps=2):
+def test_autofeat(dataset, feateng_steps=2):
         # load data
         X, y, units = load_regression_dataset(dataset)
         # split in training and test parts
