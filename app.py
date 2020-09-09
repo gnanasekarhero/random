@@ -30,7 +30,7 @@ def load_classification_dataset(dataset):
     y = dataset.iloc[:,-1]
     #column_trans = make_column_transformer((OneHotEncoder(),[-1]),remainder='passthrough')
             #test_autofeat(dataset)
-    return (X,y),units
+    return (X,y,units)
 def test_model(dataset, model, param_grid):
     # load data
     X, y, _ = load_classification_dataset(dataset)
