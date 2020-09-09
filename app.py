@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.preprocessing import OneHotEncoder
 from autofeat import AutoFeatClassifier
 from sklearn.pipeline import make_pipeline
 import pickle
@@ -27,6 +27,7 @@ def load_classification_dataset(dataset):
     #dataset = pd.read_csv(dataset_path)
     X = dataset.iloc[:,:-1].to_numpy()
     y = dataset.iloc[:,-1].to_numpy()
+    column_trans = make_column_transformer((OneHotEncoder(),[-1]),remainder='passthrough')
             #test_autofeat(dataset)
     return np.array(X, dtype=float), np.array(y, dtype=float), units
 def test_model(dataset, model, param_grid):
